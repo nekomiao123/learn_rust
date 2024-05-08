@@ -8,4 +8,7 @@ edition = "2021"
 [dependencies]
 solana-program = "1.18"
 solana-sdk = "^1.18"
+tracing = { version = "0.1.40", features = ["log"] }
+tokio = { version = "1.37.0", features = ["full"] }
+tokio-tungstenite = "*"
 
