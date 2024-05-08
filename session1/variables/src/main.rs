@@ -22,8 +22,15 @@ fn greet_borrow_mut(s: &mut String){
     *s = format!("{} World", s);
 }
 
+fn read_line() -> String{
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input).unwrap();
+    input.trim().to_string()
+}
+
+
 fn main() {
-    let n:i32 = 5;
+    let n = 5;
     let mut m = 2;
     m += 1;
     {
@@ -53,4 +60,7 @@ fn main() {
     let mut name2 = "Hello".to_string();
     greet_borrow_mut(&mut name2);
     println!("{}", name2);
+
+    let output = read_line();
+    println!("The output is [{}]", output);
 }
