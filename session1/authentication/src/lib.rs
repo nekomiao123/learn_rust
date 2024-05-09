@@ -35,11 +35,26 @@ impl User{
     }
 }
 
-pub fn get_users() -> [User; 2] {
-    [
+// pub fn get_users() -> [User; 2] {
+//     [
+//         User::new("admin", "password", LoginRole::Admin),
+//         User::new("alice", "password", LoginRole::User),
+//     ]
+// }
+
+pub fn get_users() -> Vec<User> {
+    vec![
         User::new("admin", "password", LoginRole::Admin),
         User::new("alice", "password", LoginRole::User),
     ]
+}
+
+fn test_admin_vec() {
+    let users: Vec<String> = get_users()
+    .into_iter()
+    .filter(|u| u.role == LoginRole::Admin)
+    .map(|u| u.username)
+    .collect();
 }
 
 pub fn login(username: &str, password: &str) -> Option<LoginAction> {
