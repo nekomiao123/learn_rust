@@ -34,7 +34,7 @@ impl User{
     pub fn new(username: &str, password: &str, role: LoginRole) -> User {
         User { 
             username: username.to_lowercase(),
-            password: password.to_string(), 
+            password: hash_password(password), 
             role
         }
     }
@@ -53,6 +53,14 @@ impl User{
 //         User::new("alice", "password", LoginRole::User),
 //     ]
 // }
+
+pub fn hash_password(password: &str) -> String{
+    use sha2::{Digest, Sha256};
+    let mut hahser = Sha256::new();
+    hahser.update(password);
+    format!("{:X}", hahser.finalize())
+
+}
 
 pub fn get_default_users() -> HashMap<String, User> {
     let mut users = HashMap::new();
@@ -87,6 +95,7 @@ pub fn get_users() -> HashMap<String, User> {
 
 pub fn login(username: &str, password: &str) -> Option<LoginAction> {
     let username = username.to_lowercase();
+    let password = hash_password(password);
     let users = get_users();
 
     if let Some(user) = users.get(&username) {
