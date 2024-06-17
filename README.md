@@ -1,5 +1,5 @@
 # learn_rust
-Try to learn rust
+learn rust
 
 Learn from [Rust Course](https://course.rs/about-book.html)
 
