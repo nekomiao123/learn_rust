@@ -1,4 +1,4 @@
-workspace = { members = [ "session1/authentication","session1/hello_world", "session1/login", "session1/login_manager", "session1/variables", "session2/channels1", "session2/divide_work", "session2/scoped_threads", "session2/thread", "session2/thread_builder"] }
+workspace = { members = [ "session1/authentication","session1/hello_world", "session1/login", "session1/login_manager", "session1/variables", "session2/channels1", "session2/divide_work", "session2/scoped_threads", "session2/smart_pointer", "session2/thread", "session2/thread_builder"] }
 [package]
 name = "hello"
 version = "0.1.0"
